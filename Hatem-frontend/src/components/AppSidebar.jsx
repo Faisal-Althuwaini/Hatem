@@ -1,4 +1,4 @@
-import { Calculator, Home, Bot, CalendarX2 } from "lucide-react";
+import { Calculator, Home, Bot, CalendarX2, Link } from "lucide-react";
 import Logo from "../assets/hatem1.png";
 import {
   Sidebar,
@@ -35,6 +35,11 @@ const items = [
     title: "حساب المعدل",
     url: "/gpacalc",
     icon: Calculator,
+  },
+  {
+    title: "مصادر مفيدة",
+    url: "/resources",
+    icon: Link,
   },
 ];
 

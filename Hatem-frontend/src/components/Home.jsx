@@ -35,11 +35,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div
-      className={
-        "flex justify-center items-center min-h-screen flex-col px-32 home_bg"
-      }
-    >
+    <div className="flex justify-center items-center min-h-screen flex-col md:px-32 py-12 home_bg pl-4">
       <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 ">
         <motion.img
           src={HelloImage}
@@ -63,7 +59,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8 mt-14 grid-cols-1 ">
+      <div className="grid md:grid-cols-2 gap-8 mt-14 grid-cols-1 max-w-5xl ">
         <CardItem
           title="تشات بوت - حاتم"
           content="متدرب على لوائح الجامعة، يجاوب على أسئلتك ويوضح لك القوانين ليسهّل رحلتك الأكاديمية! 🎓"
@@ -78,6 +74,11 @@ export default function Home() {
           title="حساب المعدل"
           content="يحسب معدلك الفصلي والتراكمي بدقة، ويساعدك في معرفة تأثير درجاتك على مستواك الأكاديمي! 🔢📊"
           url="/gpacalc"
+        />{" "}
+        <CardItem
+          title="مصادر مفيدة"
+          content="موارد تدعم الطالب الأكاديمي في مسيرته التعليمية والمهنية، وتساعده على تحقيق أهدافه بفعالية! 📚✨ "
+          url="/resources"
         />
       </div>
     </div>

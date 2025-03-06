@@ -60,15 +60,15 @@ export default function GPA_Calculator() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 home_bg">
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 pl-9 home_bg">
       <div className="bg-white/45 text-gray-800 p-8 w-full max-w-2xl">
-        <h1 className="text-3xl font-bold text-center text-cyan-600 mb-6">
+        <h1 className="text-3xl leading-10 font-bold text-center text-cyan-600 mb-6">
           🎓 حساب المعدل التراكمي والفصلي
         </h1>
 
         {/* إدخال GPA السابق */}
-        <div className="mb-4 flex flex-col sm:flex-row sm:space-x-4">
-          <div className="w-full">
+        <div className="mb-4 flex flex-col sm:flex-row sm:space-x-8 ">
+          <div className="w-full mb-6 md:mb-0">
             <label className="block text-lg font-medium">المعدل السابق:</label>
             <input
               type="number"
@@ -79,7 +79,7 @@ export default function GPA_Calculator() {
               placeholder="أدخل المعدل السابق"
             />
           </div>
-          <div className="w-full">
+          <div className="w-full ">
             <label className="block text-lg font-medium">
               عدد الساعات السابقة:
             </label>
@@ -100,7 +100,7 @@ export default function GPA_Calculator() {
             key={index}
             className="mb-4 flex flex-col sm:flex-row sm:space-x-4 mt-4"
           >
-            <div className="w-full">
+            <div className="w-full  mb-6 md:mb-0">
               <label className="block text-lg font-medium">الدرجة:</label>
               <select
                 className="w-full p-3 border border-l-8 border-transparent outline rounded-lg mt-1"

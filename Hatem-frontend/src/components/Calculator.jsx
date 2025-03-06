@@ -9,15 +9,15 @@ export default function AbsenceCalculator() {
   const calculateAbsence = () => {
     if (!hoursPerWeek || !lecturesPerWeek) return;
 
-    const weeks = 14; // عدد أسابيع الفصل
+    const weeks = 16; // عدد أسابيع الفصل
     let totalLectures = lecturesPerWeek * weeks; // إجمالي عدد المحاضرات في الفصل
 
-    // التعامل مع المواد ذات 3 ساعات (تقسيمها 2+1)
-    if (parseInt(hoursPerWeek) === 3 && parseInt(lecturesPerWeek) === 2) {
-      totalLectures = 28; // فرض أن المادة توزع 2+1
-    }
+    // // التعامل مع المواد ذات 3 ساعات (تقسيمها 2+1)
+    // if (parseInt(hoursPerWeek) === 3 && parseInt(lecturesPerWeek) === 2) {
+    //   totalLectures = 32; // فرض أن المادة توزع 2+1
+    // }
 
-    const maxAbsences = Math.floor(totalLectures * 0.24); // الغيابات المسموحة
+    const maxAbsences = Math.floor(totalLectures * 0.2); // الغيابات المسموحة
 
     setAllowedAbsences(maxAbsences);
   };
@@ -25,7 +25,7 @@ export default function AbsenceCalculator() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center home_bg p-6">
       <div className="bg-white/45 text-gray-800 p-6 rounded-lg  w-full max-w-lg">
-        <h1 className="text-3xl font-bold text-center text-cyan-600 mb-4">
+        <h1 className="text-xl leading-8 md:text-3xl font-bold text-center text-cyan-600 mb-4">
           📝 حساب الغيابات المسموحة
         </h1>
 

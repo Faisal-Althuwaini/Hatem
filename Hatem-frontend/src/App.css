@@ -1,0 +1,14 @@
+.home_bg{
+    position: relative;
+    overflow: hidden;
+}
+.home_bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(./assets/blob-scatter-haikei.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* Adjust this value to control transparency */
+    z-index: -1;
+}

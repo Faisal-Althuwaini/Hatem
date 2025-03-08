@@ -24,18 +24,18 @@ export default function AbsenceCalculator() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center home_bg p-6">
-      <div className="bg-white/45 text-gray-800 p-6 rounded-lg  w-full max-w-lg">
-        <h1 className="text-xl leading-8 md:text-3xl font-bold text-center text-cyan-600 mb-4">
+      <div className="bg-white/45 text-gray-800 p-6 rounded-lg  w-full max-w-xl">
+        <h1 className="text-3xl leading-10 font-bold text-center text-cyan-600 mb-6">
           📝 حساب الغيابات المسموحة
         </h1>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium">
+          <label className="block text-lg font-medium">
             عدد الساعات الأسبوعية للمادة:
           </label>
           <input
             type="number"
-            className="w-full p-2 border rounded-lg mt-1"
+            className="w-full p-3 border rounded-lg mt-1"
             value={hoursPerWeek}
             onChange={(e) => setHoursPerWeek(e.target.value)}
             placeholder="أدخل عدد الساعات"
@@ -43,12 +43,12 @@ export default function AbsenceCalculator() {
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium">
+          <label className="block text-lg font-medium">
             عدد المحاضرات الأسبوعية:
           </label>
           <input
             type="number"
-            className="w-full p-2 border rounded-lg mt-1"
+            className="w-full p-3 border rounded-lg mt-1"
             value={lecturesPerWeek}
             onChange={(e) => setLecturesPerWeek(e.target.value)}
             placeholder="أدخل عدد المحاضرات"
@@ -56,7 +56,7 @@ export default function AbsenceCalculator() {
         </div>
 
         <button
-          className="w-full bg-cyan-600 text-white py-2 rounded-lg hover:bg-cyan-700 transition"
+          className="w-full bg-cyan-600 text-white p-3 rounded-lg hover:bg-cyan-700 transition"
           onClick={calculateAbsence}
         >
           احسب الغياب

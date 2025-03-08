@@ -12,7 +12,7 @@ import {
   SidebarFooter,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 // Menu items.
 const items = [
@@ -45,6 +45,7 @@ const items = [
 
 export function AppSidebar() {
   const { open } = useSidebar();
+  const location = useLocation();
 
   return (
     <div className="">
@@ -55,19 +56,21 @@ export function AppSidebar() {
               <SidebarGroupLabel cl>
                 <img src={Logo} className="w-8" />
 
-                <SidebarGroupLabel cl>
+                <SidebarGroupLabel cl className="mt-3 text-sm">
                   حاتم - مساعدك الأكاديمي
                 </SidebarGroupLabel>
               </SidebarGroupLabel>
             </div>
             <SidebarGroupContent>
-              <SidebarMenu className="mt-2">
+              <SidebarMenu className={open ? "mt-2 " : "mt-2 items-center"}>
                 {items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
+                  <SidebarMenuItem key={item.title} className="mt-2">
                     <SidebarMenuButton asChild>
-                      <NavLink to={item.url}>
-                        <item.icon />
-                        <span>{item.title}</span>
+                      <NavLink to={item.url} cl>
+                        <div>
+                          <item.icon size="18" className="text-cyan-600" />
+                        </div>
+                        <span className="text-base mt-1">{item.title}</span>
                       </NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

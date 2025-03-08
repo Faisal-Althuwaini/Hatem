@@ -4,6 +4,20 @@ body {
   font-family: "Tajawal", sans-serif;
 }
 
+@supports not (color: oklch(0 0 0)) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --primary: #1e3a8a; /* Change to match your Tailwind theme */
+    --secondary: #64748b;
+    --muted: #f3f4f6;
+    --accent: #22c55e;
+    --destructive: #ef4444;
+    --ring: #6366f1;
+  }
+}
+
+
 @plugin "tailwindcss-animate";
 @utility container {
   margin-inline: auto; /* Centers the container */
@@ -93,6 +107,9 @@ body {
 }
 
 @theme inline {
+  --color-cyan-600: rgb(8, 145, 178)  ; 
+  --color-cyan-300: rgb(103, 232, 249)  ; 
+  --color-blue-100: rgb(219, 234, 254)  ; 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

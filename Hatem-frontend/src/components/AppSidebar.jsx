@@ -12,7 +12,7 @@ import {
   SidebarFooter,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // Menu items.
 const items = [
@@ -45,11 +45,10 @@ const items = [
 
 export function AppSidebar() {
   const { open } = useSidebar();
-  const location = useLocation();
 
   return (
     <div className="">
-      <Sidebar side="right" variant="floating" collapsible="icon">
+      <Sidebar side="right" variant="floating">
         <SidebarContent>
           <SidebarGroup>
             <div>
@@ -62,7 +61,7 @@ export function AppSidebar() {
               </SidebarGroupLabel>
             </div>
             <SidebarGroupContent>
-              <SidebarMenu className={open ? "mt-2 " : "mt-2 items-center"}>
+              <SidebarMenu className="mt-2">
                 {items.map((item) => (
                   <SidebarMenuItem key={item.title} className="mt-2">
                     <SidebarMenuButton asChild>

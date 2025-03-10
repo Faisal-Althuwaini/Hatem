@@ -1,9 +1,8 @@
 import re
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import List
 from fastapi.middleware.cors import CORSMiddleware
-from rag_api_compatible import ArabicRAGSystem  # Import your RAG system
+from rag_api_compatible_v3 import ArabicRAGSystem  # Import your RAG system
 
 app = FastAPI()
 
@@ -20,40 +19,37 @@ rag_system = ArabicRAGSystem()
 class QueryRequest(BaseModel):
     query: str
 
-def format_for_chatbot(text: str):
+def sanitize_text(text: str):
     """
-    Formats the response for chatbot-friendly display by removing newlines.
+    Cleans the response and replaces newlines with spaces to ensure a clean output.
     """
-    # Remove \n and extra spaces
-    cleaned_text = re.sub(r"\s*\n\s*", " ", text).strip()
-
-    # Split into sentences for chatbot-style responses
-    sentences = re.split(r"\.\s*", cleaned_text)
-    sentences = [s.strip() + "." for s in sentences if s.strip()]  # Ensure proper punctuation
-
-    # Convert each sentence into a separate chatbot message
-    messages = [{"role": "bot", "content": s} for s in sentences]
-
-    return {
-        "full_response": cleaned_text,  # Full cleaned response
-        "messages": messages  # List of chatbot messages
-    }
+    # text = re.sub(r"[^\u0600-\u06FF\s.,!?؛،]", "", text)  # Remove non-Arabic characters
+    text = text.replace("\n", "\n")  # Replace newlines with spaces
+    return text.strip()
 
 @app.post("/query")
 async def query_rag(request: QueryRequest):
     """
-    API endpoint for chatbot-style responses.
+    API endpoint that returns only the plain response without formatting.
     """
     if not rag_system:
         raise HTTPException(status_code=500, detail="RAG System not initialized")
 
     try:
+        # 🔹 Generate response from RAG
         response_text = rag_system.generate_response(request.query)
-        structured_response = format_for_chatbot(response_text)
 
-        return {
-            "query": request.query,
-            "response": structured_response
-        }
+        # 🔹 Ensure valid JSON response
+        cleaned_response = sanitize_text(response_text) if response_text else "لم يتم العثور على معلومات."
+
+        return {"full_response": cleaned_response}
+
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+        raise HTTPException(status_code=500, detail=str(e))
+
+# ----------------------------
+#  Running FastAPI
+# ----------------------------
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

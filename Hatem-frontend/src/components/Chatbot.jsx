@@ -31,7 +31,7 @@ export default function Chatbot() {
       console.log(data);
       setMessages((prev) => [
         ...prev,
-        { text: data.response.full_response, sender: "bot" },
+        { text: data.full_response, sender: "bot" },
       ]);
     } catch (error) {
       console.error("Error sending message:", error);
@@ -92,10 +92,12 @@ export default function Chatbot() {
         <input
           type="text"
           className="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600 text-right"
-          placeholder="اكتب رسالة..."
+          // placeholder="اكتب رسالة..."
+          placeholder="البوت ليس متوفر حالياً..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyUp={(e) => e.key === "Enter" && sendMessage()}
+          // disabled
         />
         <button
           onClick={sendMessage}

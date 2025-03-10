@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 export default function CardItem({ title, content, url, target }) {
   return (
     <div className="p-4 max-w-sm sm:max-w-md md:max-w-xl md:mx-auto">
-      <Card className="bg-gradient-to-br from-cyan-600 to-cyan-300 text-white shadow-lg rounded-xl transition-transform duration-300 hover:scale-105 h-auto">
+      <Card className="bg-cyan-500 text-white shadow-lg rounded-xl transition-transform duration-300 hover:scale-105 h-auto">
         <CardHeader>
           <CardTitle className="text-xl sm:text-2xl font-bold drop-shadow-md pt-2">
             {title}

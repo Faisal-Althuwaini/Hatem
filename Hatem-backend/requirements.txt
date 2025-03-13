@@ -1,6 +1,0 @@
-chromadb
-openai
-python-dotenv
-numpy
-sentence-transformers
-scikit-learn

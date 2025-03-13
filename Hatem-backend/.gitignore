@@ -1,5 +1,0 @@
-venv/
-.env
-original-text/
-chroma_db/
-__pycache__/

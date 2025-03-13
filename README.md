@@ -5,6 +5,7 @@
 ### Demo
 
 A video demonstration of Hatem in action is available below:
+
 [![Watch the Demo](https://img.youtube.com/vi/_REPqyyx7V0/1.jpg)](https://www.youtube.com/watch?v=_REPqyyx7V0)
 
 Hatem is an intelligent academic assistant designed to provide a range of functionalities, specifically tailored to the **University of Hail's policies and regulations**. These include:

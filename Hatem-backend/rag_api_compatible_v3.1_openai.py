@@ -72,7 +72,7 @@ class ArabicRAGSystem:
 
             print(f"✅ تمت معالجة {len(chunks)} جزء من ملف {file_name}")
 
-    def retrieve_relevant_context(self, query, top_k=5):
+    def retrieve_relevant_context(self, query, top_k=10):
         """ استرجاع أولي للنتائج من ChromaDB """
         processed_query = preprocess_query(query)
         query_embedding = self.embedding_model.encode(processed_query).tolist()
@@ -98,14 +98,14 @@ class ArabicRAGSystem:
         sorted_docs = [doc for _, doc in sorted(zip(similarities, retrieved_docs), reverse=True)]
         return sorted_docs
 
-    def retrieve_and_rerank(self, query, top_k=5):
+    def retrieve_and_rerank(self, query, top_k=10):
         """ استرجاع النتائج ثم إعادة ترتيبها للحصول على الإجابة الأكثر دقة """
         retrieved_docs = self.retrieve_relevant_context(query, top_k=top_k)
         return self.rerank_results(query, retrieved_docs)
 
     def generate_response(self, query):
         """ توليد إجابة باستخدام الوثائق الأكثر صلة """
-        retrieved_docs = self.retrieve_and_rerank(query, top_k=5)
+        retrieved_docs = self.retrieve_and_rerank(query, top_k=10)
 
         context = "\n\n".join(retrieved_docs[:3])
         print("Context: ", context)

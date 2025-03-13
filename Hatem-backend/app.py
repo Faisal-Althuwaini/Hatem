@@ -2,7 +2,7 @@ import re
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from rag_api_compatible_v3 import ArabicRAGSystem  # Import your RAG system
+from rag_api_compatible_v3_2_openai import ArabicRAGSystem  # Import your RAG system
 
 app = FastAPI()
 

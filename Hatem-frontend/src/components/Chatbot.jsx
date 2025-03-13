@@ -107,7 +107,7 @@ export default function Chatbot() {
         </button>
       </div>
       <div>
-        <p className="text-gray-500 text-sm mb-4 flex items-center justify-center">
+        <p className="text-gray-500 text-sm mb-4 flex items-center justify-center mr-5">
           حاتم قد يرتكب بعض الأخطاء، لذا يُفضل التحقق من صحة المعلومات قبل
           الاعتماد عليها.
         </p>

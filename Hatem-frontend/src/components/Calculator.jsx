@@ -17,7 +17,7 @@ export default function AbsenceCalculator() {
     //   totalLectures = 32; // فرض أن المادة توزع 2+1
     // }
 
-    const maxAbsences = Math.floor(totalLectures * 0.2); // الغيابات المسموحة
+    const maxAbsences = Math.floor(totalLectures * 0.22); // الغيابات المسموحة
 
     setAllowedAbsences(maxAbsences);
   };

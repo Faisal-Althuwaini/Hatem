@@ -15,7 +15,7 @@ The repository is organized as follows:
 
 - **Hatem-frontend/**: The frontend application built using React.
 - **Hatem-backend/**: The backend powered by FastAPI, including the RAG implementation.
-  - **rag_api_compatible_v_3_2_openai.py**: A Python file implementing retrieval-augmented generation (RAG).
+  - **rag_api_compatible_v3_2_openai.py**: A Python file implementing retrieval-augmented generation (RAG).
 
 ## Features
 
@@ -25,6 +25,14 @@ The repository is organized as follows:
 - 📚 **Educational Tools**: Access a variety of useful materials.
 
 ## Installation
+
+### Environment Variables
+
+A `.env` file should be placed inside the `Hatem-backend/` directory to store the OpenAI API key. The file should contain:
+
+```ini
+OPENAI_API_KEY=your_openai_api_key_here
+```
 
 To run the project locally, follow these steps:
 
@@ -45,7 +53,7 @@ To run the project locally, follow these steps:
    ```
 4. Run the FastAPI server (which includes the RAG implementation):
    ```bash
-   uvicorn main:app --reload
+   uvicorn app:app --reload
    ```
 
 ### Frontend Setup (React)
